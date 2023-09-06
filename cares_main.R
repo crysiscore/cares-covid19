@@ -8,10 +8,9 @@ library(xlsx)
 download_dir <- '~/Documents/cares/'
 
 source(file = 'misc_functions.R')
+source(file = 'dhis_credentials.R')
 api.dhis.base.url <- "https://mail.ccsaude.org.mz:5459/"
 
-dhis2.username   <- "ccs_datim"
-dhis2.password   <-'Kxw59wApRccGEfW_'
 
 program.id                      <- 'x8spmDYgDso' # Monitoria de Pacientes com covid 19         
 org.unit                        <- 'ebcn8hWYrg3' # CIDADE DE MAPUTO
