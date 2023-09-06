@@ -236,7 +236,27 @@ events_condicoes_pos_covid   <- spread(data = events_condicoes_pos_covid,key =da
 }
 
 
+# Create a new Excel workbook
+excel_file <- createWorkbook()
 
+# Add data1 to the first sheet with the name "Sheet1"
+sheet1 <- createSheet(excel_file, sheetName = "pacientes")
+addDataFrame(trackedInstances, sheet1)
+
+# Add data2 to the second sheet with the name "Sheet2"
+sheet2 <- createSheet(excel_file, sheetName = "eventos_rastreio")
+addDataFrame(events_rastreio_recrutamento, sheet2)
+
+
+sheet3 <- createSheet(excel_file, sheetName = "eventos_monitorizacao")
+addDataFrame(events_monitorizacao_cuidados, sheet3)
+
+sheet4 <- createSheet(excel_file, sheetName = "eventos_condicoes_pos_covid")
+addDataFrame(events_condicoes_pos_covid, sheet4)
+
+
+# Save the workbook to a file
+saveWorkbook(excel_file, file = paste0(download_dir,"cares.xlsx") )
 
 # Excluir linhas duplicadas
 #s   <- s[!duplicated(events_monitorizacao_cuidados), ]
